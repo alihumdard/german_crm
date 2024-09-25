@@ -34,6 +34,28 @@ class JobPortalController extends Controller
         }
     } 
 
+    public function job_view()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $user = auth()->user();
+        if ($user) {
+            $page_name = 'job_view';
+            if (!view_permission($page_name)) {
+                return redirect()->back();
+            }
+
+            $data['user'] = $user;
+            $data['role'] = user_role_no($user->role);
+            return view('admin.pages.job_view', $data);
+
+        } else {
+            return redirect('/login');
+        }
+    } 
+
     public function jobs_listing()
     {
         if (!Auth::check()) {
@@ -55,4 +77,27 @@ class JobPortalController extends Controller
             return redirect('/login');
         }
     } 
+
+    public function job_create()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $user = auth()->user();
+        if ($user) {
+            $page_name = 'job_create';
+            if (!view_permission($page_name)) {
+                return redirect()->back();
+            }
+
+            $data['user'] = $user;
+            $data['role'] = user_role_no($user->role);
+            return view('admin.pages.job_create', $data);
+
+        } else {
+            return redirect('/login');
+        }
+    } 
+
 }

@@ -23,9 +23,11 @@
                                     data-bs-toggle="dropdown" aria-expanded="{{ (request()->routeIs(['job.listng', 'admin.index'])) ? 'true' : 'false' }}">
                                     <i class="fa fa-laptop me-2"></i>Job Portal
                                 </a>
-                                <div class="dropdown-menu bg-transparent border-0 {{ (request()->routeIs(['job.listng', 'admin.index'])) ? 'show' : '' }}">
-                                    <a href="{{route('job.listng')}}" class="dropdown-item {{ (request()->routeIs(['job.listng'])) ? 'active' : ''}}">Find Job</a>
-                                    <a href="{{route('admin.index')}}" class="dropdown-item {{ (request()->routeIs(['admin.index'])) ? 'active' : ''}} my-1">Create Job</a>
+                                <div class="dropdown-menu bg-transparent border-0 {{ (request()->routeIs(['job.listng', 'job.create', 'job.view'])) ? 'show' : '' }}">
+                                    <a href="{{route('job.listng')}}" class="dropdown-item {{ (request()->routeIs(['job.listng','job.view'])) ? 'active' : ''}}">Find Job</a>
+                                    <a href="{{route('job.create')}}" class="dropdown-item {{ (request()->routeIs(['job.create'])) ? 'active' : ''}} my-1">Create Job</a>
+                                    <a href="{{route('job.create')}}" class="dropdown-item {{ (request()->routeIs(['job.create'])) ? 'active' : ''}} my-1">Applications Recieved</a>
+                                    <a href="{{route('job.create')}}" class="dropdown-item {{ (request()->routeIs(['job.create'])) ? 'active' : ''}} my-1">Applied Job</a>
                                 </div>
                             </div>
 
