@@ -18,6 +18,7 @@ class Users extends Seeder
     {
                 // Create an Super Admin
                 User::factory()->create([
+                    'username'   => 'webadmin',
                     'name'       => 'Web Admin',
                     'email'      => 'superadmin@gmail.com',
                     'password'   => Hash::make('admin@123'),
@@ -29,6 +30,7 @@ class Users extends Seeder
         
                 // Create a MGW_Agent
                 User::factory()->create([
+                    'username'     => 'mgwagent',
                     'name'         => 'MGW Agent',
                     'email'        => 'mgwagent@gmail.com',
                     'phone'        => '+923394030',
@@ -42,6 +44,7 @@ class Users extends Seeder
         
                 // Create a Employer 
                 User::factory()->create([
+                    'username'     => 'employer',
                     'name'         => 'Employer',
                     'email'        => 'employer@gmail.com',
                     'phone'        => '+923394030',
@@ -55,6 +58,7 @@ class Users extends Seeder
         
                 // Create a Employee
                 User::factory()->create([
+                    'username'  => 'employee',
                     'name'      => 'Employee',
                     'email'     => 'employee@gmail.com',
                     'dob'       => '02/16/2024',
