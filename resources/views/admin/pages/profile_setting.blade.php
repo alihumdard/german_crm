@@ -15,7 +15,7 @@
             <div class="col-md-4 col-xl-3">
                 <div class="card mb-3">
                     <div class="card-body text-center">
-                        <img src="/assets/admin/img/user.jpg" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128">
+                        <img src="/assets/admin/img/user.png" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128">
                         <h5 class="card-title mb-0">Christina Mason</h5>
                         <div class="text-muted mb-2">Lead Developer</div>
 
@@ -81,7 +81,7 @@
                     <div class="card-body h-100">
 
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Vanessa Tucker">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Vanessa Tucker">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">5m ago</small>
                                 <strong>Vanessa Tucker</strong> started following <strong>Christina Mason</strong><br>
@@ -92,7 +92,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">30m ago</small>
                                 <strong>Charles Hall</strong> posted something on <strong>Christina Mason</strong>'s timeline<br>
@@ -111,7 +111,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">1h ago</small>
                                 <strong>Christina Mason</strong> posted a new blog<br>
@@ -122,7 +122,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">3h ago</small>
                                 <strong>William Harris</strong> posted two photos on <strong>Christina Mason</strong>'s timeline<br>
@@ -130,10 +130,10 @@
 
                                 <div class="row g-0 mt-1">
                                     <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                        <img src="/assets/admin/img/user.jpg" class="img-fluid pe-2" alt="Unsplash">
+                                        <img src="/assets/admin/img/user.png" class="img-fluid pe-2" alt="Unsplash">
                                     </div>
                                     <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                        <img src="/assets/admin/img/user.jpg" class="img-fluid pe-2" alt="Unsplash">
+                                        <img src="/assets/admin/img/user.png" class="img-fluid pe-2" alt="Unsplash">
                                     </div>
                                 </div>
 
@@ -145,7 +145,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">1d ago</small>
                                 <strong>William Harris</strong> started following <strong>Christina Mason</strong><br>
@@ -153,7 +153,7 @@
 
                                 <div class="d-flex align-items-start mt-1">
                                     <a class="pe-3" href="#">
-                                        <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
+                                        <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
                                     </a>
                                     <div class="flex-grow-1">
                                         <div class="border text-sm text-muted p-2 mt-1">
@@ -166,7 +166,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">1d ago</small>
                                 <strong>Christina Mason</strong> posted a new blog<br>
@@ -176,7 +176,7 @@
 
                         <hr>
                         <div class="d-flex align-items-start">
-                            <img src="/assets/admin/img/user.jpg" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
+                            <img src="/assets/admin/img/user.png" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
                             <div class="flex-grow-1">
                                 <small class="float-end text-navy">1d ago</small>
                                 <strong>Charles Hall</strong> started following <strong>Christina Mason</strong><br>
