@@ -72,6 +72,8 @@ function view_permission($page_name)
                 case 'job_listing':
                 case 'job_create':
                 case 'job_view':
+                case 'job_applied':
+                case 'job_applications':
                     return true;
                 default:
                     return false;
@@ -84,6 +86,8 @@ function view_permission($page_name)
                 case 'job_listing':
                 case 'job_create':
                 case 'job_view':
+                case 'job_applied':
+                case 'job_applications':
                     return true;
                 default:
                     return false;
@@ -96,6 +100,8 @@ function view_permission($page_name)
                 case 'job_listing':
                 case 'job_create':
                 case 'job_view':
+                case 'job_applied':
+                case 'job_applications':
                     return true;
                 default:
                     return false;
@@ -108,6 +114,8 @@ function view_permission($page_name)
                 case 'job_listing':
                 case 'job_create':
                 case 'job_view':
+                case 'job_applied':
+                case 'job_applications':
                     return true;
                 default:
                     return false;
