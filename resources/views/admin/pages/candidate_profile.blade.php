@@ -217,7 +217,7 @@
                                                             <div class="col-10">
                                                                 <div class="row">
                                                                     <div class="col-12 col-md-6 mb-2">
-                                                                        <input type="text" name="qualification_levels[]" class="form-control" placeholder="Qualification" required>
+                                                                        <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" required>
                                                                     </div>
                                                                     <div class="col-12 col-md-6 mb-2">
                                                                         <input type="text" name="qualification_institute[]" class="form-control" placeholder="Institute Name" required>
@@ -280,23 +280,23 @@
                                             <div class="mb-3">
                                                 <label for="skills_and_experience" class="form-label">Skills and Experience</label>
                                                 <textarea id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Enter details about your skills, work experience, and education"> </textarea>
-                                                <div class="mb-3">
-                                                    <label for="job_type" class="form-label">Job Types</label>
-                                                    <input value="" id="job_type" type="text" class="form-control" name="job_type">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="location" class="form-label">Location</label>
-                                                    <input value="" id="location" type="text" class="form-control" name="location">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="desired_salary" class="form-label">Desired Salary</label>
-                                                    <input value="" id="desired_salary" type="text" class="form-control" name="desired_salary">
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col d-flex justify-content-end">
-                                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                    <div class="mb-3">
+                                                        <label for="job_type" class="form-label">Job Types</label>
+                                                        <input value="" id="job_type" type="text" class="form-control" name="job_type">
                                                     </div>
-                                                </div>
+                                                    <div class="mb-3">
+                                                        <label for="location" class="form-label">Location</label>
+                                                        <input value="" id="location" type="text" class="form-control" name="location">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="desired_salary" class="form-label">Desired Salary</label>
+                                                        <input value="" id="desired_salary" type="text" class="form-control" name="desired_salary">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col d-flex justify-content-end">
+                                                            <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                        </div>
+                                                    </div>
                                         </form>
                                     </div>
                                 </div>
@@ -354,7 +354,7 @@
                                 <div class="col-12 col-md-10">
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-2">
-                                            <input type="text" name="qualification_levels[]" class="form-control" placeholder="Qualification" required>
+                                            <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" required>
                                         </div>
                                         <div class="col-12 col-md-6 mb-2">
                                             <input type="text" name="qualification_institute[]" class="form-control" placeholder="Institute Name" required>

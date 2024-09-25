@@ -70,6 +70,8 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
+                case 'job_create':
+                case 'job_view':
                     return true;
                 default:
                     return false;
@@ -80,6 +82,8 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
+                case 'job_create':
+                case 'job_view':
                     return true;
                 default:
                     return false;
@@ -90,6 +94,8 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
+                case 'job_create':
+                case 'job_view':
                     return true;
                 default:
                     return false;
@@ -100,6 +106,8 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
+                case 'job_create':
+                case 'job_view':
                     return true;
                 default:
                     return false;

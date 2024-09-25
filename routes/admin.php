@@ -14,6 +14,8 @@ Route::prefix('portal')->middleware('auth')->group(function () {
     Route::post('/profile/documents', [ProfileCompleteController::class, 'storeDocuments'])->name('profile.documents.store');
     Route::delete('/profile/documents/{id}', [ProfileCompleteController::class, 'destroyDocument'])->name('profile.documents.destroy');
     Route::get('/jobs-listing', [JobPortalController::class, 'jobs_listing'])->name('job.listng');
+    Route::get('/jobs-create', [JobPortalController::class, 'job_create'])->name('job.create');
+    Route::get('/jobs-view', [JobPortalController::class, 'job_view'])->name('job.view');
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout'); 
 });
 
