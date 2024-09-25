@@ -13,9 +13,12 @@ Route::prefix('portal')->middleware('auth')->group(function () {
     Route::post('/profile/update', [ProfileCompleteController::class, 'updateProfile'])->name('profile.update');
     Route::post('/profile/documents', [ProfileCompleteController::class, 'storeDocuments'])->name('profile.documents.store');
     Route::delete('/profile/documents/{id}', [ProfileCompleteController::class, 'destroyDocument'])->name('profile.documents.destroy');
-    Route::get('/jobs-listing', [JobPortalController::class, 'jobs_listing'])->name('job.listng');
-    Route::get('/jobs-create', [JobPortalController::class, 'job_create'])->name('job.create');
+    Route::get('/job-listing', [JobPortalController::class, 'jobs_listing'])->name('job.listng');
+    Route::get('/job-create', [JobPortalController::class, 'job_create'])->name('job.create');
+    Route::get('/job-applied', [JobPortalController::class, 'job_applied'])->name('job.applied');
+    Route::get('/job-applications', [JobPortalController::class, 'job_applications'])->name('job.applications');
     Route::get('/jobs-view', [JobPortalController::class, 'job_view'])->name('job.view');
+    Route::post('/jobs-store', [JobPortalController::class, 'job_store'])->name('job.store');
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout'); 
 });
 

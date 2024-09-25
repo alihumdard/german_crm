@@ -15,4 +15,11 @@ return [
         'Deactive' => 2,
         'Deleted' => 3
     ],
+
+    'STATUS_No' => [
+        1 => 'Active',
+        2 => 'Deactive',
+        3 => 'Deleted'
+    ],
+
 ];
