@@ -37,7 +37,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col mt-2">
                                                 <div class="form-group">
                                                     <label>Salary Range</label>
                                                     <input class="form-control @error('salary_range') is-invalid @enderror" type="number" name="salary_range" placeholder="Salary Range" value="{{ old('salary_range') }}" required>
@@ -47,7 +47,19 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col">
+                                            <div class="col mt-1">
+                                                <div class="form-group">
+                                                    <label>Salary Method</label>
+                                                    <select class="form-control">
+                                                        <option value="per-hour">Per Hour</option>
+                                                        <option value="per-month">Per Month</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col mt-1">
                                                 <div class="form-group">
                                                     <label>Currency</label>
                                                     <select class="form-control @error('currency') is-invalid @enderror" name="currency" required>
@@ -60,10 +72,19 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="col mt-1">
+                                                <div class="form-group">
+                                                    <label>Industry</label>
+                                                    <select class="form-control">
+                                                        <option value="per-hour">Web Development</option>
+                                                        <option value="per-month">IT</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col mb-3">
+                                            <div class="col mt-1 mb-3">
                                                 <div class="form-group">
                                                     <label>Location</label>
                                                     <input class="form-control @error('location') is-invalid @enderror" type="text" name="location" placeholder="Location" value="{{ old('location') }}" required>
