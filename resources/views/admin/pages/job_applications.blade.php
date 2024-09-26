@@ -20,11 +20,13 @@
         padding: 8px;
         color: #ccc;
     }
-    .results{
+
+    .results {
         width: 95%;
         background: #fff;
     }
-    .pull-right{
+
+    .pull-right {
         width: 97%;
     }
 </style>
@@ -79,46 +81,34 @@
 </div>
 <!-- Blank End -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {//+
-        document.querySelector(".search").addEventListener("keyup", function() {//+
-            var searchTerm = document.querySelector(".search").value;//+
-            var listItem = document.querySelectorAll('.results tbody tr');//+
-            var searchSplit = searchTerm.replace(/ /g, "'):containsi('");//+
-
-            $.extend($.expr[':'], {
-                'containsi': function(elem, i, match, array) {
-                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-                }
-            });
-            
-//+
-            Array.from(listItem).forEach(function(item) {//+
-                if (!item.querySelector(":containsi('" + searchSplit + "')")) {//+
-                    item.setAttribute('visible', 'false');//+
-                } else {//+
-                    item.setAttribute('visible', 'true');//+
-                }//+
-            });
-        
-//+
-            var jobCount = document.querySelectorAll('.results tbody tr[visible="true"]').length;//+
-            document.querySelector('.counter').textContent = jobCount + ' item';//+
-            if (jobCount == '0') {
-                
-                document.querySelector('.no-result').style.display = 'block';//+
-            } else {//-
-                document.querySelector('.no-result').style.display = 'none';//+
-            }
-        });
-    });
-
-</script>
-
 @stop
 
 @pushOnce('scripts')
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".search").addEventListener("keyup", function() {
+        var searchTerm = document.querySelector(".search").value.toLowerCase();
+        var listItem = document.querySelectorAll('.results tbody tr');
 
+        Array.from(listItem).forEach(function(item) {
+            // Convert item text to lowercase and check if it contains the search term
+            var text = item.textContent.toLowerCase();
+            if (text.indexOf(searchTerm) === -1) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = '';
+            }
+        });
+
+        var jobCount = document.querySelectorAll('.results tbody tr:not([style*="display: none"])').length;
+        document.querySelector('.counter').textContent = jobCount + ' item' + (jobCount > 1 ? 's' : '');
+
+        if (jobCount === 0) {
+            document.querySelector('.no-result').style.display = 'block';
+        } else {
+            document.querySelector('.no-result').style.display = 'none';
+        }
+    });
+});
 </script>
 @endPushOnce
