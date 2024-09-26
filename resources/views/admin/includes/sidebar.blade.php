@@ -19,13 +19,15 @@
                             <a href="{{route('admin.index')}}" class="nav-item nav-link {{ (request()->routeIs(['admin.index'])) ? 'active' : ''}}  my-1"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                             
                             <div class="nav-item dropdown my-1">
-                                <a href="#" class="nav-link dropdown-toggle {{ (request()->routeIs(['job.listng', 'admin.index'])) ? 'active' : ''}}"
-                                    data-bs-toggle="dropdown" aria-expanded="{{ (request()->routeIs(['job.listng', 'admin.index'])) ? 'true' : 'false' }}">
+                                <a href="#" class="nav-link dropdown-toggle {{ (request()->routeIs(['job.listng', 'job.create', 'job.view', 'job.applications','job.applied'])) ? 'active' : ''}}"
+                                    data-bs-toggle="dropdown" aria-expanded="{{ (request()->routeIs(['job.listng', 'job.create', 'job.view', 'job.applications','job.applied'])) ? 'true' : 'false' }}">
                                     <i class="fa fa-laptop me-2"></i>Job Portal
                                 </a>
-                                <div class="dropdown-menu bg-transparent border-0 {{ (request()->routeIs(['job.listng', 'admin.index'])) ? 'show' : '' }}">
-                                    <a href="{{route('job.listng')}}" class="dropdown-item {{ (request()->routeIs(['job.listng'])) ? 'active' : ''}}">Find Job</a>
-                                    <a href="{{route('admin.index')}}" class="dropdown-item {{ (request()->routeIs(['admin.index'])) ? 'active' : ''}} my-1">Create Job</a>
+                                <div class="dropdown-menu bg-transparent border-0 {{ (request()->routeIs(['job.listng', 'job.create', 'job.view', 'job.applications','job.applied'])) ? 'show' : '' }}">
+                                    <a href="{{route('job.listng')}}" class="dropdown-item {{ (request()->routeIs(['job.listng','job.view'])) ? 'active' : ''}}">Find Job</a>
+                                    <a href="{{route('job.create')}}" class="dropdown-item {{ (request()->routeIs(['job.create'])) ? 'active' : ''}} my-1">Create Job</a>
+                                    <a href="{{route('job.applications')}}" class="dropdown-item {{ (request()->routeIs(['job.applications'])) ? 'active' : ''}} my-1">Applications Recieved</a>
+                                    <a href="{{route('job.applied')}}" class="dropdown-item {{ (request()->routeIs(['job.applied'])) ? 'active' : ''}} my-1">Applied Job</a>
                                 </div>
                             </div>
 

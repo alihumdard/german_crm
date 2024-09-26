@@ -17,23 +17,7 @@
         color: #fff;
     }
 
-    .career-form .form-control::-webkit-input-placeholder {
-        /* Chrome/Opera/Safari */
-        color: #fff;
-    }
-
-    .career-form .form-control::-moz-placeholder {
-        /* Firefox 19+ */
-        color: #fff;
-    }
-
-    .career-form .form-control:-ms-input-placeholder {
-        /* IE 10+ */
-        color: #fff;
-    }
-
-    .career-form .form-control:-moz-placeholder {
-        /* Firefox 18- */
+    .career-form .form-control::placeholder {
         color: #fff;
     }
 
@@ -45,83 +29,35 @@
         width: 100%;
         border-radius: 5px;
         text-align: left;
-        height: auto;
-        background-image: none;
     }
 
     .career-form .custom-select:focus {
-        -webkit-box-shadow: none;
         box-shadow: none;
-    }
-
-    .career-form .select-container {
-        position: relative;
-    }
-
-    .career-form .select-container:before {
-        position: absolute;
-        right: 15px;
-        top: calc(50% - 14px);
-        font-size: 18px;
-        color: #ffffff;
-        content: '\F2F9';
-        font-family: "Material-Design-Iconic-Font";
     }
 
     .filter-result .job-box {
         background: #fff;
-        -webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
         box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
         border-radius: 10px;
         padding: 10px 35px;
     }
 
-    ul {
-        list-style: none;
-    }
-
-    .list-disk li {
-        list-style: none;
-        margin-bottom: 12px;
-    }
-
-    .list-disk li:last-child {
-        margin-bottom: 0;
-    }
-
-
     .card {
         box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
-    }
-
-    .card {
-        position: relative;
         display: flex;
         flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
         background-color: #fff;
-        background-clip: border-box;
-        border: 0 solid rgba(0, 0, 0, .125);
         border-radius: 1rem;
     }
 
     .card-body {
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
         flex: 1 1 auto;
         padding: 1.5rem 1.5rem;
     }
 
     .avatar-text {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
         background: #000;
         color: #fff;
@@ -133,17 +69,332 @@
         height: 3rem;
     }
 
-    .rounded-3 {
-        border-radius: 0.5rem !important;
-    }
-
     .mb-2 {
         margin-bottom: 0.5rem !important;
     }
 
-    .me-4 {
-        margin-right: 1.5rem !important;
+    body {
+        background: #dcdcdc;
+        margin-top: 20px;
     }
+
+    .widget-26 {
+        color: #3c4142;
+        font-weight: 400;
+    }
+
+    .widget-26 tr:first-child td {
+        border: 0;
+    }
+
+    .widget-26 .widget-26-job-title {
+        min-width: 200px;
+    }
+
+    .widget-26 .widget-26-job-title a {
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #3c4142;
+        line-height: 1.5;
+    }
+
+    .widget-26 .widget-26-job-title a:hover {
+        color: #68CBD7;
+        text-decoration: none;
+    }
+
+    .widget-26 .widget-26-job-info {
+        min-width: 100px;
+        font-weight: 400;
+    }
+
+    .widget-26 .widget-26-job-info p {
+        line-height: 1.5;
+        color: #3c4142;
+        font-size: 0.8125rem;
+    }
+
+    .widget-26 .widget-26-job-salary {
+        min-width: 70px;
+        font-weight: 400;
+        color: #3c4142;
+        font-size: 0.8125rem;
+    }
+
+    .bg-soft-base {
+        background-color: #e1f5f7;
+    }
+
+    .search-form {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+
+    .search-form input {
+        background: transparent;
+        border: 0;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .search-form select {
+        background: transparent;
+        border: 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .search-form button {
+        font-size: 1rem;
+    }
+
+    .search-body .search-result .result-header {
+        margin-bottom: 2rem;
+    }
+
+    .search-body .search-result .result-header .records {
+        color: #3c4142;
+    }
+
+    .search-body .search-result .result-header .result-actions {
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .widget-26 .widget-26-job-emp-img img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+    .widget-26 .widget-26-job-title {
+        min-width: 200px;
+    }
+
+    .widget-26 .widget-26-job-title a {
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: #3c4142;
+        line-height: 1.5;
+    }
+
+    .widget-26 .widget-26-job-title a:hover {
+        color: #68CBD7;
+        text-decoration: none;
+    }
+
+    .widget-26 .widget-26-job-title .employer-name {
+        margin: 0;
+        line-height: 1.5;
+        font-weight: 400;
+        font-size: 0.8125rem;
+        color: #3c4142;
+    }
+
+    .widget-26 .widget-26-job-title .employer-name:hover {
+        color: #68CBD7;
+        text-decoration: none;
+    }
+
+    .widget-26 .widget-26-job-title .time {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .widget-26 .widget-26-job-info {
+        min-width: 100px;
+        font-weight: 400;
+    }
+
+    .widget-26 .widget-26-job-info p {
+        line-height: 1.5;
+        color: #3c4142;
+        font-size: 0.8125rem;
+    }
+
+    .widget-26 .widget-26-job-info .location {
+        color: #3c4142;
+    }
+
+    .widget-26 .widget-26-job-salary {
+        min-width: 70px;
+        font-weight: 400;
+        color: #3c4142;
+        font-size: 0.8125rem;
+    }
+
+    .widget-26 .widget-26-job-category {
+        padding: 0.5rem;
+        display: inline-flex;
+        white-space: nowrap;
+        border-radius: 15px;
+    }
+
+    .widget-26 .widget-26-job-category .indicator {
+        width: 13px;
+        height: 13px;
+        margin-right: 0.5rem;
+        float: left;
+        border-radius: 50%;
+    }
+
+    .widget-26 .widget-26-job-category span {
+        font-size: 0.8125rem;
+        color: #3c4142;
+        font-weight: 600;
+    }
+
+    .widget-26 .widget-26-job-starred svg {
+        width: 20px;
+        height: 20px;
+        color: #fd8b2c;
+    }
+
+    .widget-26 .widget-26-job-starred svg.starred {
+        fill: #fd8b2c;
+    }
+
+    .bg-soft-base {
+        background-color: #e1f5f7;
+    }
+
+    .bg-soft-warning {
+        background-color: #fff4e1;
+    }
+
+    .bg-soft-success {
+        background-color: #d1f6f2;
+    }
+
+    .bg-soft-danger {
+        background-color: #fedce0;
+    }
+
+    .bg-soft-info {
+        background-color: #d7efff;
+    }
+
+    .search-form {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+
+    .search-form input {
+        height: 100%;
+        background: transparent;
+        border: 0;
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .search-form select {
+        background: transparent;
+        border: 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .search-form select:focus {
+        border: 0;
+    }
+
+    .search-form button {
+        height: 100%;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .search-form button svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .search-body {
+        margin-bottom: 1.5rem;
+    }
+
+    .search-body .search-filters .filter-list {
+        margin-bottom: 1.3rem;
+    }
+
+    .search-body .search-filters .filter-list .title {
+        color: #3c4142;
+        margin-bottom: 1rem;
+    }
+
+    .search-body .search-filters .filter-list .filter-text {
+        color: #727686;
+    }
+
+    .search-body .search-result .result-header {
+        margin-bottom: 2rem;
+    }
+
+    .search-body .search-result .result-header .records {
+        color: #3c4142;
+    }
+
+    .search-body .search-result .result-header .result-actions {
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search-body .search-result .result-header .result-actions .result-sorting {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-body .search-result .result-header .result-actions .result-sorting span {
+        flex-shrink: 0;
+        font-size: 0.8125rem;
+    }
+
+    .search-body .search-result .result-header .result-actions .result-sorting select {
+        color: #68CBD7;
+    }
+
+    .search-body .search-result .result-header .result-actions .result-sorting select option {
+        color: #3c4142;
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .search-body .search-filters {
+            display: flex;
+        }
+
+        .search-body .search-filters .filter-list {
+            margin-right: 1rem;
+        }
+    }
+
+    .card-margin {
+        margin-bottom: 1.875rem;
+    }
+
+    @media (min-width: 992px) {
+        .col-lg-2 {
+            flex: 0 0 16.66667%;
+            max-width: 16.66667%;
+        }
+    }
+
+    .card {
+        border: 0;
+        box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        background-color: #ffffff;
+        border-radius: 8px;
+    }
+
+
 </style>
 
 <!-- Blank Start -->
@@ -189,196 +440,79 @@
                     </div>
                 </form>
 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-margin">
+                            <div class="card-body">
+                                <div class="row search-body">
+                                    <div class="col-lg-12">
+                                        <div class="search-result">
+                                            <div class="result-header">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
+                                                    </div>
+                                                    <div class="col-lg-6">
 
-                <div class="filter-result">
-                    <p class="mb-30 ff-montserrat">Total Job Openings : 89</p>
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 mb-2">FD</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Junior Frontend Developer</h4>
-                                        <span class="badge bg-secondary">WORLDWIDE</span> <span class="badge bg-success">$60K - $100K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">REACT</span>
-                                        <span class="badge bg-secondary">NODE</span>
-                                        <span class="badge bg-secondary">TYPESCRIPT</span>
-                                        <span class="badge bg-secondary">JUNIOR</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="result-body">
+                                                <div class="table-responsive">
+                                                    <table class="table widget-26">
+                                                        <tbody>
+                                                            @foreach($opportunities as $key => $opportunity)
+                                                            <tr style="border-bottom:#cccad9 solid 1px;" >
+                                                                <td>
+                                                                    <div class="widget-26-job-emp-img"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Company"></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="widget-26-job-title"> <a href="{{ route('job.view') }}">{{$opportunity->title ?? '' }}</a>
+                                                                        <p class="m-0"><a href="#" class="employer-name">Posted At.</a> <span class="text-muted time">{{$opportunity->created_at ?? '' }} days ago</span></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="widget-26-job-info">
+                                                                        <p class="type m-0">{{$opportunity->type ?? '' }}Part-Time</p>
+                                                                        <p class="text-muted m-0">in <span class="location">{{$opportunity->location ?? '' }} </span></p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="widget-26-job-salary">{{ $opportunity->currency.$opportunity->salary_range ?? '' }}/hr</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="widget-26-job-category bg-soft-success"> <i class="indicator bg-success"></i> <span>{{ $opportunity->qualifications ?? ''}}</span></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="widget-26-job-starred"> <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                            </svg> </a></div>
+                                                                </td>
+                                                            </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <nav class="d-flex justify-content-center">
+                                    <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                                        <li class="page-item"> <a class="page-link no-border" href="#"> <span aria-hidden="true">«</span> <span class="sr-only">Previous</span> </a></li>
+                                        <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+                                        <li class="page-item"> <a class="page-link no-border" href="#"> <span aria-hidden="true">»</span> <span class="sr-only">Next</span> </a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                 
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 mb-2">FD</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Junior Frontend Developer</h4>
-                                        <span class="badge bg-secondary">WORLDWIDE</span> <span class="badge bg-success">$60K - $100K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">REACT</span>
-                                        <span class="badge bg-secondary">NODE</span>
-                                        <span class="badge bg-secondary">TYPESCRIPT</span>
-                                        <span class="badge bg-secondary">JUNIOR</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                     
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 mb-2">FD</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Junior Frontend Developer</h4>
-                                        <span class="badge bg-secondary">WORLDWIDE</span> <span class="badge bg-success">$60K - $100K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">REACT</span>
-                                        <span class="badge bg-secondary">NODE</span>
-                                        <span class="badge bg-secondary">TYPESCRIPT</span>
-                                        <span class="badge bg-secondary">JUNIOR</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 bg-warning mb-2">BE</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Senior Backend Engineer</h4>
-                                        <span class="badge bg-secondary">US</span> <span class="badge bg-success">$90K - $180K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">GOLANG</span>
-                                        <span class="badge bg-secondary">SENIOR</span>
-                                        <span class="badge bg-secondary">ENGINEER</span>
-                                        <span class="badge bg-secondary">BACKEND</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 bg-warning mb-2">BE</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Senior Backend Engineer</h4>
-                                        <span class="badge bg-secondary">US</span> <span class="badge bg-success">$90K - $180K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">GOLANG</span>
-                                        <span class="badge bg-secondary">SENIOR</span>
-                                        <span class="badge bg-secondary">ENGINEER</span>
-                                        <span class="badge bg-secondary">BACKEND</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 bg-info mb-2">PM</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Director of Product Marketing</h4>
-                                        <span class="badge bg-secondary">WORLDWIDE</span> <span class="badge bg-success">$150K - $210K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">PRODUCT MARKETING</span>
-                                        <span class="badge bg-secondary">MARKETING</span>
-                                        <span class="badge bg-secondary">EXECUTIVE</span>
-                                        <span class="badge bg-secondary">ECOMMERCE</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <span class="avatar avatar-text rounded-3 me-4 bg-warning mb-2">BE</span>
-                                <div class="row flex-fill">
-                                    <div class="col-sm-5">
-                                        <h4 class="h5">Senior Backend Engineer</h4>
-                                        <span class="badge bg-secondary">US</span> <span class="badge bg-success">$90K - $180K</span>
-                                    </div>
-                                    <div class="col-sm-4 py-2">
-                                        <span class="badge bg-secondary">GOLANG</span>
-                                        <span class="badge bg-secondary">SENIOR</span>
-                                        <span class="badge bg-secondary">ENGINEER</span>
-                                        <span class="badge bg-secondary">BACKEND</span>
-                                    </div>
-                                    <div class="col-sm-3 text-lg-end">
-                                        <a href="#" class="btn btn-primary stretched-link">Apply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-            <!-- START Pagination -->
-            <nav aria-label="Page navigation">
-                <ul class="pagination pagination-reset justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                            <i class="zmdi zmdi-long-arrow-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item d-none d-md-inline-block"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item d-none d-md-inline-block"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <i class="zmdi zmdi-long-arrow-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- END Pagination -->
         </div>
     </div>
 </div>
