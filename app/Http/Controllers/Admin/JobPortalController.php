@@ -154,23 +154,27 @@ class JobPortalController extends Controller
     public function job_store(Request $request)
     {
         $request->validate([
-            'title'          => 'required|string|max:255',
-            'qualifications' => 'required|string|max:255',
-            'salary_range'   => 'required|numeric',
-            'currency'       => 'required|string|max:10',
-            'location'       => 'required|string|max:255',
-            'description'    => 'nullable|string',
+            'title'             => 'required|string|max:255',
+            'qualifications'    => 'required|string|max:255',
+            'salary_range'      => 'required|numeric',
+            'currency'          => 'required|string',
+            'location'          => 'required|string|max:255',
+            'description'       => 'nullable|string',
+            'desired_salary'    => 'required|numeric', 
+            'skills'            => 'nullable|array',   
         ]);
 
         Opportunity::create([
-            'title'          => $request->title,
-            'qualifications' => $request->qualifications,
-            'salary_range'   => $request->salary_range,
-            'currency'       => $request->currency,
-            'location'       => $request->location,
-            'description'    => $request->description,
-            'user_id'        => auth()->id(),
-            'created_by'     => auth()->id(),
+            'title'             => $request->title,
+            'qualifications'    => $request->qualifications,
+            'salary_range'      => $request->salary_range,
+            'currency'          => $request->currency,
+            'location'          => $request->location,
+            'description'       => $request->description,
+            'desired_salary'    => $request->desired_salary,
+            'skills'            => implode(',', $request->skills),  
+            'user_id'           => auth()->id(),
+            'created_by'        => auth()->id(),
         ]);
 
         return redirect()->route('job.create')->with('success', 'Job opportunity created successfully.');

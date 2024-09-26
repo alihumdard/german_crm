@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\UserDocument;
+use App\Models\UserExperience;
 
 class ProfileCompleteController extends Controller
 {
@@ -28,6 +29,8 @@ class ProfileCompleteController extends Controller
 
             $data['user'] = $user;
             $data['role'] = user_role_no($user->role);
+            $data['experiences'] = $user->experiences;
+            
 
             // User roles: 1 for Super_Admin, 2 for MGW_Agent, 3 for Employer, 4 Employee
             if (isset($user->role) && $user->role == user_roles('1')) {
@@ -101,9 +104,12 @@ class ProfileCompleteController extends Controller
             'language_name.*' => 'nullable|string|max:255',
             'language_institute.*' => 'nullable|string|max:255',
             'language_duration.*' => 'nullable|string|max:255',
+            'skills.*' => 'nullable|string|max:255', 
+            'desired_salary' => 'nullable', 
         ]);
 
         $user = auth()->user();
+        $skills = implode(',', $request->skills); 
 
         if ($request->hasFile('resume')) {
             $path = $request->file('resume')->store('documents/resumes', 'public');
@@ -111,6 +117,8 @@ class ProfileCompleteController extends Controller
                 'user_id' => $user->id,
                 'document_type' => 'resume',
                 'file_path' => $path,
+                'skills' => $skills, 
+                'desired_salary' => $request->desired_salary, 
             ]);
         }
 
@@ -120,6 +128,8 @@ class ProfileCompleteController extends Controller
                 'user_id' => $user->id,
                 'document_type' => 'cover_letter',
                 'file_path' => $path,
+                'skills' => $skills, 
+                'desired_salary' => $request->desired_salary, 
             ]);
         }
 
@@ -135,6 +145,8 @@ class ProfileCompleteController extends Controller
                         'institute' => $request->qualification_institute[$index],
                         'duration' => $request->qualification_duration[$index],
                     ],
+                    'skills' => $skills, 
+                    'desired_salary' => $request->desired_salary, 
                 ]);
             }
         }
@@ -151,11 +163,47 @@ class ProfileCompleteController extends Controller
                         'institute' => $request->language_institute[$index],
                         'duration' => $request->language_duration[$index],
                     ],
+                    'skills' => $skills, 
+                    'desired_salary' => $request->desired_salary, 
                 ]);
             }
         }
 
         return redirect()->back()->with('success', 'Documents uploaded successfully.');
+    }
+
+    public function storeExperience(Request $request)
+    {
+        $request->validate([
+            'job_title' => 'required|string|max:255',
+            'employment_type' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'location_type' => 'required|string|max:255',
+            'currently_working' => 'sometimes|boolean',
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'description' => 'nullable|string',
+            'profile_headline' => 'required|string|max:255',
+        ]);
+
+        $experience = UserExperience::create([
+            'user_id' => Auth::id(),
+            'job_title' => $request->job_title,
+            'employment_type' => $request->employment_type,
+            'company_name' => $request->company_name,
+            'location' => $request->location,
+            'location_type' => $request->location_type,
+            'currently_working' => $request->currently_working,
+            'start_date' => $request->start_date,
+            'end_date' => $request->currently_working ? null : $request->end_date,
+            'description' => $request->description,
+            'profile_headline' => $request->profile_headline,
+            'created_by' => Auth::id(),
+            'updated_by' => null,
+        ]);
+
+        return redirect()->back()->with('success', 'Experience saved successfully.');
     }
 
     public function destroyDocument($id)
@@ -165,6 +213,4 @@ class ProfileCompleteController extends Controller
         $document->delete();
         return redirect()->back()->with('success', 'Document deleted successfully.');
     }
-
-    
 }

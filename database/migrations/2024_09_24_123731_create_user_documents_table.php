@@ -17,12 +17,15 @@ return new class extends Migration
             $table->string('document_type');
             $table->string('file_path');
             $table->json('extra_details')->nullable();
+            $table->string('skills')->nullable(); 
+            $table->string('desired_salary')->nullable(); 
             $table->softDeletes();
             $table->timestamps();
-
+    
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
+    
 
     /**
      * Reverse the migrations.

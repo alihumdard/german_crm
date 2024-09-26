@@ -15,10 +15,11 @@ class UserDocument extends Model
         'document_type',
         'file_path',
         'extra_details',
+        'skills', 
+        'desired_salary', 
     ];
-
     protected $casts = [
-        'extra_details' => 'array',
+        'extra_details' => 'json',
     ];
 
     public function user()
