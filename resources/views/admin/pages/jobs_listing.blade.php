@@ -10,6 +10,11 @@
         padding: 0 16px;
     }
 
+    .career-form option {
+        background: #fff;
+        color: #000;
+    }
+
     .career-form .form-control {
         background-color: rgba(255, 255, 255, 0.2);
         border: 0;
@@ -84,6 +89,10 @@
     }
 
     .widget-26 tr:first-child td {
+        padding-left: 45px;
+        padding-top: 20px !important;
+        padding-bottom: 0;
+        border: 0;
         border: 0;
     }
 
@@ -92,10 +101,12 @@
     }
 
     .widget-26 .widget-26-job-title a {
-        font-weight: 400;
-        font-size: 0.875rem;
+        font-weight: 700 !important;
+        font-size: 14px !important;
         color: #3c4142;
-        line-height: 1.5;
+        line-height: 1.5 !important;
+        font-family: 'Heebo';
+        text-transform: capitalize;
     }
 
     .widget-26 .widget-26-job-title a:hover {
@@ -109,12 +120,16 @@
     }
 
     .widget-26 .widget-26-job-info p {
-        line-height: 1.5;
+        font-weight: 700 !important;
+        font-size: 14px !important;
         color: #3c4142;
-        font-size: 0.8125rem;
+        line-height: 1.5 !important;
+        font-family: 'Heebo';
+        text-transform: capitalize;
     }
 
     .widget-26 .widget-26-job-salary {
+        margin-top: 7px;
         min-width: 70px;
         font-weight: 400;
         color: #3c4142;
@@ -164,7 +179,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    
+
     .widget-26 .widget-26-job-emp-img img {
         width: 35px;
         height: 35px;
@@ -218,13 +233,18 @@
 
     .widget-26 .widget-26-job-info .location {
         color: #3c4142;
+        font-size: 13px !important;
+        font-weight: 400 !important;
     }
 
     .widget-26 .widget-26-job-salary {
         min-width: 70px;
-        font-weight: 400;
+        font-weight: 700 !important;
+        font-size: 14px !important;
         color: #3c4142;
-        font-size: 0.8125rem;
+        line-height: 1.5 !important;
+        font-family: 'Heebo';
+        text-transform: capitalize;
     }
 
     .widget-26 .widget-26-job-category {
@@ -235,6 +255,7 @@
     }
 
     .widget-26 .widget-26-job-category .indicator {
+        margin-top: 2px;
         width: 13px;
         height: 13px;
         margin-right: 0.5rem;
@@ -249,6 +270,7 @@
     }
 
     .widget-26 .widget-26-job-starred svg {
+        margin-top: 8px;
         width: 20px;
         height: 20px;
         color: #fd8b2c;
@@ -394,7 +416,18 @@
         border-radius: 8px;
     }
 
+    .table-responsive {
+        border: 2px solid lightgray;
+        border-radius: 14px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
 
+    .widget-26-job-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <!-- Blank Start -->
@@ -433,8 +466,11 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 my-3">
-                            <button type="button" class="btn btn-lg btn-block btn-light btn-custom" id="contact-submit">
+                            <button type="button" class="btn btn-lg btn-block btn-light btn-custom ms-2 me-2" id="contact-submit">
                                 Search
+                            </button>
+                            <button type="button" class="btn btn-lg btn-block btn-light btn-custom" id="contact-submit">
+                                Apply
                             </button>
                         </div>
                     </div>
@@ -462,7 +498,7 @@
                                                     <table class="table widget-26">
                                                         <tbody>
                                                             @foreach($opportunities as $key => $opportunity)
-                                                            <tr style="border-bottom:#cccad9 solid 1px;" >
+                                                            <tr>
                                                                 <td>
                                                                     <div class="widget-26-job-emp-img"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Company"></div>
                                                                 </td>
