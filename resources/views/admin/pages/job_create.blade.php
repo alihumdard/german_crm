@@ -37,7 +37,7 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col mt-2">
+                                            <div class="col mt-3">
                                                 <div class="form-group">
                                                     <label>Salary Range</label>
                                                     <input class="form-control @error('salary_range') is-invalid @enderror" type="number" name="salary_range" placeholder="Salary Range" value="{{ old('salary_range') }}" required>
@@ -47,22 +47,24 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col mt-1">
+                                            <div class="col mt-3">
                                                 <div class="form-group">
                                                     <label>Salary Method</label>
-                                                    <select class="form-control">
-                                                        <option value="per-hour">Per Hour</option>
-                                                        <option value="per-month">Per Month</option>
+                                                    <select class="form-select mb-3" aria-label="Default select example">
+                                                        <option selected>Select your salary Method</option>
+                                                        <option value="Per Hour">Per Hour</option>
+                                                        <option value="Per Month">Per Month</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col mt-1">
+                                            <div class="col ">
                                                 <div class="form-group">
                                                     <label>Currency</label>
-                                                    <select class="form-control @error('currency') is-invalid @enderror" name="currency" required>
+                                                    <select class="form-select mb-3 @error('currency') is-invalid @enderror" name="currency" aria-label="Default select example" required>
+                                                        <option selected>Select your Currency</option>
                                                         <option value="USD">USD</option>
                                                         <option value="EUR">EUR</option>
                                                         <option value="GBP">GBP</option>
@@ -72,12 +74,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="col mt-1">
+                                            <div class="col ">
                                                 <div class="form-group">
                                                     <label>Industry</label>
-                                                    <select class="form-control">
-                                                        <option value="per-hour">Web Development</option>
-                                                        <option value="per-month">IT</option>
+                                                    <select class="form-select mb-3" aria-label="Default select example">
+                                                        <option selected>Select your Industry</option>
+                                                        <option value="Per Hour">Web Development</option>
+                                                        <option value="Per Month">IT</option>
                                                     </select>
                                                 </div>
                                             </div>
