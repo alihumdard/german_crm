@@ -494,10 +494,10 @@
                                             </div>
                                             <div class="result-body">
                                                 <div class="table-responsive">
-                                                    <table class="table widget-26">
+                                                    <table class="table widget-26 mb-0">
                                                         <tbody>
                                                             @foreach($opportunities as $key => $opportunity)
-                                                            <tr style="border-bottom: 1px solid lightgray;">
+                                                            <tr class="pb-0" style="border-bottom: 1px solid lightgray;">
                                                                 <td>
                                                                     <div class="widget-26-job-emp-img"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Company"></div>
                                                                 </td>
