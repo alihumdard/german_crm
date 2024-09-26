@@ -1,6 +1,25 @@
 @extends('admin.layouts.default')
 @section('title', 'Complete Profile')
 @section('content')
+
+<!-- internal css -->
+ <style>
+    /* Skills And Experiance Section */
+
+
+.artdeco-card {
+    /* box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
+    transition: box-shadow 83ms; */
+    border: 1px solid lightgray;
+    background-color: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 40px auto;
+    font-family: "Heebo", sans-serif;
+}
+ </style>
 <!-- Blank Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row flex-lg-nowrap">
@@ -277,17 +296,171 @@
 
                                         <!-- Skills and Experience -->
                                         <form>
-                                            <div class="mb-3">
-                                                <label for="skills_and_experience" class="form-label">Skills and Experience</label>
-                                                <textarea id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Enter details about your skills, work experience, and education"> </textarea>
-                                                <div class="mb-3">
+                                            <div class="mb-3 mt-3">
+                                                <!-- <label for="skills_and_experience" class="form-label">Skills and Experience</label>
+                                                <textarea id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Enter details about your skills, work experience, and education"> </textarea> -->
+                                                <!-- <label for="skills_and_experience" class="form-label mb-0">Skills</label>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Select Your skills
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item" href="#">Html 5</a></li>
+                                                        <li><a class="dropdown-item" href="#">CSS 3</a></li>
+                                                        <li><a class="dropdown-item" href="#">javaScript</a></li>
+                                                        <li><a class="dropdown-item" href="#">PHP</a></li>
+                                                        <li><a class="dropdown-item" href="#">Laravel</a></li>
+                                                    </ul>
+                                                </div> -->
+                                                <label for="skills_and_experience" class="form-label">Skills</label>
+                                                <select class="form-select mt-2 mb-2 selectpicker">
+                                                    <option selected>Select your Skills</option>
+                                                    <option value="Html 5">Html 5</option>
+                                                    <option value="Css 3">Css 3</option>
+                                                    <option value="javaScript">javaScript</option>
+                                                </select>
+                                                <div class="row artdeco-card">
+                                                    <div class="col-md-12 d-flex justify-content-between flex-sm-row p-4">
+                                                        <div class="heading p-2 fw-bold fs-1 me-auto">
+                                                            <h5>Experience</h5>
+                                                        </div>
+                                                        <!-- Button trigger modal -->
+                                                        <div class="button">
+                                                            <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                Edit
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                Delete
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <label for="skills_and_experience" class="form-label">Title</label>
+                                                                        <input id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Enter Job Title"> </input>
+                                                                        <label for="skills_and_experience" class="form-label mb-2 mt-3">Employment Type</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <select class="form-select" id="inputGroupSelect02">
+                                                                                <option selected>Choose...</option>
+                                                                                <option value="1">Full Time</option>
+                                                                                <option value="2">Part Time</option>
+                                                                                <option value="3">Self-Employed</option>
+                                                                                <option value="3">Freelance</option>
+                                                                                <option value="3">contract</option>
+                                                                                <option value="3">Intership</option>
+                                                                                <option value="3">Apprenticeship</option>
+                                                                                <option value="3">Seasonal</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <label for="skills_and_experience" class="form-label">Company Name</label>
+                                                                        <input id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Ex: Microsoft"></input>
+                                                                        <label for="skills_and_experience" class="form-label mt-3">Location</label>
+                                                                        <input id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder="Enter Your Location"> </input>
+                                                                        <label for="skills_and_experience" class="form-label mb-2 mt-3">Location Type</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <select class="form-select" id="inputGroupSelect02">
+                                                                                <option selected>Choose...</option>
+                                                                                <option value="1">On-site</option>
+                                                                                <option value="2">Hybrid</option>
+                                                                                <option value="3">Remote</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                                I'm currently working in this role
+                                                                            </label>
+                                                                        </div>
+                                                                        <label for="skills_and_experience" class="form-label mb-2 mt-3">Start Date</label>
+                                                                        <div class="display_flex d-flex justify-content-between">
+                                                                            <div class="input-group mb-3" style="width: 48%;">
+                                                                                <select class="form-select" id="inputGroupSelect02">
+                                                                                    <option selected>Month</option>
+                                                                                    <option value="1">On-site</option>
+                                                                                    <option value="2">Hybrid</option>
+                                                                                    <option value="3">Remote</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group mb-3" style="width: 48%;">
+                                                                                <select class="form-select" id="inputGroupSelect02">
+                                                                                    <option selected>Year</option>
+                                                                                    <option value="1">On-site</option>
+                                                                                    <option value="2">Hybrid</option>
+                                                                                    <option value="3">Remote</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <label for="skills_and_experience" class="form-label mb-2 mt-2">End Date</label>
+                                                                        <div class="display_flex d-flex justify-content-between">
+                                                                            <div class="input-group mb-3" style="width: 48%;">
+                                                                                <select class="form-select" id="inputGroupSelect02">
+                                                                                    <option selected>Month</option>
+                                                                                    <option value="1">On-site</option>
+                                                                                    <option value="2">Hybrid</option>
+                                                                                    <option value="3">Remote</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="input-group mb-3" style="width: 48%;">
+                                                                                <select class="form-select" id="inputGroupSelect02">
+                                                                                    <option selected>Year</option>
+                                                                                    <option value="1">On-site</option>
+                                                                                    <option value="2">Hybrid</option>
+                                                                                    <option value="3">Remote</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-check mt-3 mb-3">
+                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                                End current position as of now - Full-stack Developer at Oracle Force
+                                                                            </label>
+                                                                        </div>
+                                                                        <label for="skills_and_experience" class="form-label mt-3">Description</label>
+                                                                        <textarea id="skills_and_experience" class="form-control" name="skills_and_experience" placeholder=""> </textarea>
+                                                                        <label for="skills_and_experience" class="form-label mt-3">Profile Headline</label>
+                                                                        <input id="skills_and_experience" class="form-control" rows="10" name="skills_and_experience" placeholder=""> </input>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 d-flex  gap-3 mt-2 mb-2">
+                                                        <div class="img rounded-circle">
+                                                            <img src="{{asset('/assets/admin/img/Modern Initial E Logo.png') }}" alt="" width="50" height="50">
+                                                        </div>
+                                                        <div class="h2">
+                                                            <div>
+                                                                <h5 class="fs-6 fw-light">Full Stack Developer</h5>
+                                                                <h6 class="fs-6 fw-light">Oracle Force Full Time</h6>
+                                                                <h6 class="fs-6 fw-light">Jul 2024 - Present 3 mos</h6>
+                                                                <h6 class="fs-6 fw-light">Lahore, Punjab, Pakistan Remote</h6>
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="fs-6 fw-light">Im Full Stack Developer</h5>
+                                                                <h6 class="fs-6 fw-light">Skills: PHP Full-Stack Development · Laravel · Web Design · Web Development</h6>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="mb-3">
                                                     <label for="job_type" class="form-label">Job Types</label>
                                                     <input value="" id="job_type" type="text" class="form-control" name="job_type">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="location" class="form-label">Location</label>
                                                     <input value="" id="location" type="text" class="form-control" name="location">
-                                                </div>
+                                                </div> -->
                                                 <div class="mb-3">
                                                     <label for="desired_salary" class="form-label">Desired Salary</label>
                                                     <input value="" id="desired_salary" type="text" class="form-control" name="desired_salary">
@@ -304,12 +477,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-
 </div>
 <!-- Blank End -->
 
