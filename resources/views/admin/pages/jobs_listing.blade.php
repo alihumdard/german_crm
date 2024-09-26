@@ -80,7 +80,7 @@
 
     body {
         background: #dcdcdc;
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 
     .widget-26 {
@@ -89,7 +89,6 @@
     }
 
     .widget-26 tr:first-child td {
-        padding-left: 45px;
         padding-top: 20px !important;
         padding-bottom: 0;
         border: 0;
@@ -498,7 +497,7 @@
                                                     <table class="table widget-26">
                                                         <tbody>
                                                             @foreach($opportunities as $key => $opportunity)
-                                                            <tr>
+                                                            <tr style="border-bottom: 1px solid lightgray;">
                                                                 <td>
                                                                     <div class="widget-26-job-emp-img"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Company"></div>
                                                                 </td>
