@@ -4,210 +4,112 @@
 
 <!-- Blank Start -->
 <div class="container-fluid pt-4 px-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="job-details-wrap">
-                    <div class="job-details-info">
-                        <div class="thumb">
-                            <img src="assets/img/companies/10.webp" width="130" height="130" alt="Image-HasTech">
-                        </div>
-                        <div class="content">
-                            <h4 class="title">Senior Web Developer</h4>
-                            <h5 class="sub-title">Obelus Concepts Ltd.</h5>
-                            <ul class="info-list">
-                                <li><i class="icofont-location-pin"></i> New York, USA</li>
-                                <li><i class="icofont-phone"></i> +88 456 796 457</li>
-                            </ul>
+
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <div class="container">
+            <div class="row gy-5 gx-4">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center mb-5">
+                        <img class="flex-shrink-0 img-fluid border rounded" src="/assets/admin/img/user.png" alt="" style="width: 80px; height: 80px;">
+                        <div class="text-start ps-4">
+                            <h3 class="mb-3">{{$opportunity->title ?? '' }}</h3>
+                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$opportunity->location ?? '' }}</span>
+                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$opportunity->job_type ?? '' }}</span>
+                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{ $opportunity->currency.$opportunity->salary_range ?? '' }}</span>
                         </div>
                     </div>
-                    <div class="job-details-price">
-                        <h4 class="title">$5000 <span>/monthly</span></h4>
-                        <button type="button" class="btn-theme">Apply Now</button>
+
+                    @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    <div class="mb-5">
+                        <h4 class="mb-3">Job description</h4>
+                        <p>{{$opportunity->description ?? '' }}</p>
+                        <h4 class="mb-3">Responsibility</h4>
+                        <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                        </ul>
+                        <h4 class="mb-3">Qualifications</h4>
+                        <p>{{$opportunity->qualifications ?? '' }}</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
+                            <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                        </ul>
+                    </div>
+
+                    <div class="">
+                        <h4 class="mb-4">Apply For The Job</h4>
+
+                        <form method="POST" action="{{ route('job.apply') }}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="job_id" value="{{ $opportunity->id }}">
+                            @error('job_id')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <input type="hidden" name="employer_id" value="{{ $opportunity->user_id }}">
+                            @error('employer_id')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <input type="text" class="form-control @error('portfolio_website') is-invalid @enderror"
+                                        placeholder="Portfolio Website"
+                                        name="portfolio_website"
+                                        value="{{ old('portfolio_website') }}">
+                                    @error('portfolio_website')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea class="form-control @error('cover_message') is-invalid @enderror"
+                                        rows="5"
+                                        name="cover_message"
+                                        placeholder="Cover Message">{{ old('cover_message') ?? $user->short_bio ?? '' }}</textarea>
+                                    @error('cover_message')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-7 col-xl-8">
-                <div class="job-details-item">
-                    <div class="content">
-                        <h4 class="title">Description</h4>
-                        <p class="desc">It is a long established fact that a reader will be distracted the readable content of page when looking atits layout. The point of using is that has more-or-less normal a distribution of letters, as opposed to usin content publishing packages web page editors. It is a long established fact that a reader will be distracts by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that has look like readable publishing packages and web page editors.</p>
-                        <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout. The point of using is that has more-or-less normal a distribution of letters, as opposed to usin content publishing packages web page editors.</p>
+
+                <div class="col-lg-4">
+                    <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s" style="background-color: #009cff33 !important; visibility: visible; animation-delay: 0.1s; animation-name: slideInUp;">
+                        <h4 class="mb-4">Job Summery</h4>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: {{ $opportunity->created_at->format('M d, Y') }} </p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Days: ({{ $opportunity->created_at->diffForHumans() }})</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{$opportunity->job_type ?? '' }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {{ $opportunity->currency.$opportunity->salary_range ?? '' }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Location: New York, USA</p>
+                        <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: 01 Jan, 2045</p>
                     </div>
-                    <div class="content">
-                        <h4 class="title">Responsibilities</h4>
-                        <ul class="job-details-list">
-                            <li><i class="icofont-check"></i> Developing custom themes (WordPress.org &amp; ThemeForest Standards)</li>
-                            <li><i class="icofont-check"></i> Creating reactive website designs</li>
-                            <li><i class="icofont-check"></i> Working under strict deadlines</li>
-                            <li><i class="icofont-check"></i> Develop page speed optimized themes</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <h4 class="title">Requirements</h4>
-                        <ul class="job-details-list">
-                            <li><i class="icofont-check"></i> Having approved theme/s on ThemeForest will be given high preference.</li>
-                            <li><i class="icofont-check"></i> Strong knowledge of WordPress Theme Standards</li>
-                            <li><i class="icofont-check"></i> Ability to convert HTML templates into fully functional WordPress themes.</li>
-                            <li><i class="icofont-check"></i> Good knowledge in O OP PHP and front-end stuffs like HTML, CSS, JS, jQuery, etc.</li>
-                            <li><i class="icofont-check"></i> Moderate knowledge in WordPress Core APIs like options, metadata, REST, hooks, settings, etc.</li>
-                            <li><i class="icofont-check"></i> Ability to debug and fix bugs arising from other developer’s code.</li>
-                            <li><i class="icofont-check"></i> Sense of humor</li>
-                            <li><i class="icofont-check"></i> Hard worker and passionate – we are growing super fast</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <h4 class="title">Educational Requirements</h4>
-                        <p class="desc">It doesn’t matter where you went to college or what your CGPA was as long as you are smart, passionate, ready to work hard, and have fun.</p>
-                    </div>
-                    <div class="content">
-                        <h4 class="title">Working Hours</h4>
-                        <ul class="job-details-list">
-                            <li><i class="icofont-check"></i> 8:00 AM - 5:00 PM</li>
-                            <li><i class="icofont-check"></i> Weekly: 5 days.</li>
-                            <li><i class="icofont-check"></i> Weekend: Saturday, Sunday.</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <h4 class="title">Benefits</h4>
-                        <ul class="job-details-list">
-                            <li><i class="icofont-check"></i> Work in a flat organization where your voice is always heard.</li>
-                            <li><i class="icofont-check"></i> Provident fund.</li>
-                            <li><i class="icofont-check"></i> Gratuity.</li>
-                            <li><i class="icofont-check"></i> Medical Fund.</li>
-                            <li><i class="icofont-check"></i> Having Corporate deals with multiple Hospitals.</li>
-                            <li><i class="icofont-check"></i> Performance bonus.</li>
-                            <li><i class="icofont-check"></i> Increment: Yearly.</li>
-                            <li><i class="icofont-check"></i> Festival Bonus: 2 (Yearly)</li>
-                            <li><i class="icofont-check"></i> Lunch Facilities: Full Subsidize.</li>
-                            <li><i class="icofont-check"></i> Unlimited Tea, Coffee &amp; Snacks.</li>
-                            <li><i class="icofont-check"></i> Annual tour.</li>
-                            <li><i class="icofont-check"></i> Team Outing.</li>
-                            <li><i class="icofont-check"></i> Marriage Bonus and Marriage Leave.</li>
-                            <li><i class="icofont-check"></i> Paternity and Maternity Leave.</li>
-                            <li><i class="icofont-check"></i> Yearly Family Tour.</li>
-                            <li><i class="icofont-check"></i> Knowledge Sharing Session.</li>
-                            <li><i class="icofont-check"></i> Leave Encashment Facilities.</li>
-                            <li><i class="icofont-check"></i> Work with a vibrant team and amazing products.</li>
-                            <li><i class="icofont-check"></i> Table Tennis(Ping Pong) :table_tennis_paddle_and_ball:</li>
-                            <li><i class="icofont-check"></i> Training and learning materials to improve skills.</li>
-                            <li><i class="icofont-check"></i> Last but not the least, WorldClass Work Environment.</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <h4 class="title">Statement</h4>
-                        <p class="desc">Finate is committed to creating the happiest company working for and is proud to provide equal opportunity to all. All the qualified applicants will receive consideration for employment without regard to race, color, ancestry, religion, sex, sexual orientation, age, citizenship, marital status, disability, gender identity, or any other basis protected by federal, state, or local law.</p>
-                        <a class="btn-apply-now" href="contact.html">Apply Now <i class="icofont-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-xl-4">
-                <div class="job-sidebar">
-                    <div class="widget-item">
-                        <div class="widget-title">
-                            <h3 class="title">Summery</h3>
-                        </div>
-                        <div class="summery-info">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td class="table-name">Job Type</td>
-                                        <td class="dotted">:</td>
-                                        <td data-text-color="#03a84e" style="color: rgb(3, 168, 78);">Full-time</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Category</td>
-                                        <td class="dotted">:</td>
-                                        <td>Development</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Posted</td>
-                                        <td class="dotted">:</td>
-                                        <td>20 June, 2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Category</td>
-                                        <td class="dotted">:</td>
-                                        <td>Development</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Salary</td>
-                                        <td class="dotted">:</td>
-                                        <td>$5000 / Monthly</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Experience</td>
-                                        <td class="dotted">:</td>
-                                        <td>05 Years</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Gender</td>
-                                        <td class="dotted">:</td>
-                                        <td>Male or Female</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Qualification</td>
-                                        <td class="dotted">:</td>
-                                        <td>BSC, MSC</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Level</td>
-                                        <td class="dotted">:</td>
-                                        <td>Senior</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Applied</td>
-                                        <td class="dotted">:</td>
-                                        <td>26 Applicant</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Application End</td>
-                                        <td class="dotted">:</td>
-                                        <td data-text-color="#ff6000" style="color: rgb(255, 96, 0);">20 November, 2022</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="widget-item">
-                        <div class="widget-title">
-                            <h3 class="title">Share With</h3>
-                        </div>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="icofont-facebook"></i></a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener"><i class="icofont-twitter"></i></a>
-                            <a href="https://www.skype.com" target="_blank" rel="noopener"><i class="icofont-skype"></i></a>
-                            <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="icofont-pinterest"></i></a>
-                            <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="icofont-dribbble"></i></a>
-                        </div>
-                    </div>
-                    <div class="widget-item widget-tag">
-                        <div class="widget-title">
-                            <h3 class="title">Tags:</h3>
-                        </div>
-                        <div class="widget-tag-list">
-                            <a href="job.html">Cleaning</a>
-                            <a href="job.html">Cleaning Agency</a><br>
-                            <a href="job.html">Business</a>
-                            <a href="job.html">Cleaning</a>
-                            <a href="job.html">Business</a>
-                            <a href="job.html">Cleaning</a>
-                            <a href="job.html">Cleaning Agency</a>
-                            <a href="job.html">Business</a>
-                            <a href="job.html">Cleaning Agency</a>
-                            <a href="job.html">Cleaning</a>
-                            <a href="job.html">Business</a>
-                            <a href="job.html">Business</a>
-                            <a href="job.html">Cleaning Agency</a>
-                            <a href="job.html">Business</a>
-                        </div>
+                    <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s" style=" background-color: #009cff33 !important; visibility: visible; animation-delay: 0.1s; animation-name: slideInUp;">
+                        <h4 class="mb-4">Company Detail</h4>
+                        <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <!-- Blank End -->
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +16,11 @@ class Opportunity extends Model
         'currency',
         'location',
         'description',
+        'job_type',  
+        'skills',          
         'user_id',
+        'created_by',
+        'updated_by',
     ];
 
     protected $dates = ['deleted_at'];

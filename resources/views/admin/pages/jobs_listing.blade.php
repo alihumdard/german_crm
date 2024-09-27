@@ -497,31 +497,32 @@
                                                     <table class="table widget-26 mb-0">
                                                         <tbody>
                                                             @foreach($opportunities as $key => $opportunity)
-                                                            <tr class="pb-0" style="border-bottom: 1px solid lightgray;">
+                                                            <tr class="pb-0 " style="border-bottom: 1px solid lightgray;">
                                                                 <td>
-                                                                    <div class="widget-26-job-emp-img"> <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Company"></div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="widget-26-job-title"> <a href="{{ route('job.view') }}">{{$opportunity->title ?? '' }}</a>
-                                                                        <p class="m-0"><a href="#" class="employer-name">Posted At.</a> <span class="text-muted time">{{$opportunity->created_at ?? '' }} days ago</span></p>
+                                                                    <div class="job-item p-4 mb-1">
+                                                                        <div class="row g-4">
+                                                                            <div class="col-12 col-md-2 d-flex justify-content-center mb-3 mb-md-0">
+                                                                                <img class="img-fluid border rounded" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" style="width: 80px; height: 80px;">
+                                                                            </div>
+                                                                            <div class="col-12 col-md-6 d-flex align-items-start">
+                                                                                <div class="text-start ">
+                                                                                    <h5 class="mb-3">{{$opportunity->title ?? '' }}</h5>
+                                                                                    <div class="d-flex flex-column flex-sm-row">
+                                                                                        <span class="text-truncate me-3 mb-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$opportunity->location ?? '' }}</span>
+                                                                                        <span class="text-truncate me-3 mb-2"><i class="far fa-clock text-primary me-2"></i>{{$opportunity->job_type ?? '' }}</span>
+                                                                                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{ $opportunity->currency.$opportunity->salary_range ?? '' }}</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                                                <div class="d-flex mb-3">
+                                                                                    <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                                                                    <a class="btn btn-primary" href="{{ route('job.view', ['id' => encrypt($opportunity->id)]) }}">Apply Now</a>
+                                                                                </div>
+                                                                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{ $opportunity->created_at->format('M d, Y') }} ({{ $opportunity->created_at->diffForHumans() }})</small>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="widget-26-job-info">
-                                                                        <p class="type m-0">{{$opportunity->type ?? '' }}Part-Time</p>
-                                                                        <p class="text-muted m-0">in <span class="location">{{$opportunity->location ?? '' }} </span></p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="widget-26-job-salary">{{ $opportunity->currency.$opportunity->salary_range ?? '' }}/hr</div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="widget-26-job-category bg-soft-success"> <i class="indicator bg-success"></i> <span>{{ $opportunity->qualifications ?? ''}}</span></div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="widget-26-job-starred"> <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-                                                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                                                            </svg> </a></div>
                                                                 </td>
                                                             </tr>
                                                             @endforeach
@@ -529,6 +530,7 @@
                                                     </table>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
