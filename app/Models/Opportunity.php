@@ -16,8 +16,8 @@ class Opportunity extends Model
         'currency',
         'location',
         'description',
-        'desired_salary',  // Added
-        'skills',          // Added
+        'job_type',  
+        'skills',          
         'user_id',
         'created_by',
         'updated_by',

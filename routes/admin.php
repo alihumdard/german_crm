@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProfileCompleteController;
 use App\Http\Controllers\Admin\JobPortalController;
+use App\Http\Controllers\Admin\ApplicationController;
 
 
 // Routes for admin with authentication check
@@ -16,9 +17,10 @@ Route::prefix('portal')->middleware('auth')->group(function () {
     Route::delete('/profile-documents/{id}', [ProfileCompleteController::class, 'destroyDocument'])->name('profile.documents.destroy');
     Route::get('/job-listing', [JobPortalController::class, 'jobs_listing'])->name('job.listng');
     Route::get('/job-create', [JobPortalController::class, 'job_create'])->name('job.create');
-    Route::get('/job-applied', [JobPortalController::class, 'job_applied'])->name('job.applied');
-    Route::get('/job-applications', [JobPortalController::class, 'job_applications'])->name('job.applications');
-    Route::get('/jobs-view', [JobPortalController::class, 'job_view'])->name('job.view');
+    Route::post('/job-apply', [ApplicationController::class, 'apply'])->name('job.apply');
+    Route::get('/job-applied', [ApplicationController::class, 'job_applied'])->name('job.applied');
+    Route::get('/job-applications', [ApplicationController::class, 'job_applications'])->name('job.applications');
+    Route::get('/jobs-view/{id}', [JobPortalController::class, 'job_view'])->name('job.view');
     Route::post('/jobs-store', [JobPortalController::class, 'job_store'])->name('job.store');
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout'); 
 });

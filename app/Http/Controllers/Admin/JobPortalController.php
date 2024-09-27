@@ -44,10 +44,16 @@ class JobPortalController extends Controller
         }
     }
 
-    public function job_view()
+    public function job_view($encryptedId)
     {
         if (!Auth::check()) {
             return redirect()->route('login');
+        }
+
+        try {
+            $jobId = decrypt($encryptedId);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['Invalid Opportunity ID']);
         }
 
         $user = auth()->user();
@@ -57,8 +63,16 @@ class JobPortalController extends Controller
                 return redirect()->back();
             }
 
+            $opportunity = Opportunity::find($jobId);
+            if (!$opportunity) {
+                return redirect()->back()->withErrors(['Opportunity not found']);
+            }
+
             $data['user'] = $user;
+            $data['documents'] = $user->documents;
+            $data['experiences']   = $user->experiences;
             $data['role'] = user_role_no($user->role);
+            $data['opportunity'] = $opportunity;
             return view('admin.pages.job_view', $data);
         } else {
             return redirect('/login');
@@ -109,48 +123,6 @@ class JobPortalController extends Controller
         }
     }
 
-    public function job_applied()
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
-
-        $user = auth()->user();
-        if ($user) {
-            $page_name = 'job_applied';
-            if (!view_permission($page_name)) {
-                return redirect()->back();
-            }
-
-            $data['user'] = $user;
-            $data['role'] = user_role_no($user->role);
-            return view('admin.pages.job_applied', $data);
-        } else {
-            return redirect('/login');
-        }
-    }
-
-    public function job_applications()
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
-
-        $user = auth()->user();
-        if ($user) {
-            $page_name = 'job_applications';
-            if (!view_permission($page_name)) {
-                return redirect()->back();
-            }
-
-            $data['user'] = $user;
-            $data['role'] = user_role_no($user->role);
-            return view('admin.pages.job_applications', $data);
-        } else {
-            return redirect('/login');
-        }
-    }
-
     public function job_store(Request $request)
     {
         $request->validate([
@@ -160,8 +132,8 @@ class JobPortalController extends Controller
             'currency'          => 'required|string',
             'location'          => 'required|string|max:255',
             'description'       => 'nullable|string',
-            'desired_salary'    => 'required|numeric', 
-            'skills'            => 'nullable|array',   
+            'job_type'          => 'required',
+            'skills'            => 'nullable|array',
         ]);
 
         Opportunity::create([
@@ -171,8 +143,8 @@ class JobPortalController extends Controller
             'currency'          => $request->currency,
             'location'          => $request->location,
             'description'       => $request->description,
-            'desired_salary'    => $request->desired_salary,
-            'skills'            => implode(',', $request->skills),  
+            'job_type'          => $request->job_type,
+            'skills'            => implode(',', $request->skills),
             'user_id'           => auth()->id(),
             'created_by'        => auth()->id(),
         ]);

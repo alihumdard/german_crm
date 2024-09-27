@@ -51,6 +51,36 @@
 
                                             <div class="col mt-3">
                                                 <div class="form-group">
+                                                    <label>Job Type</label>
+                                                    <select class="form-select @error('job_type') is-invalid @enderror" name="job_type" required>
+                                                        <option value="Part-Time">Part-Time</option>
+                                                        <option value="Full-Time">Full Time</option>
+                                                        <option value="Per-Hour">Per Hour</option>
+                                                        <option value="Per-Hour">Contract</option>
+                                                    </select>
+                                                    @error('job_type')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col mt-3">
+                                                <div class="form-group">
+                                                    <label>Industry</label>
+                                                    <select class="form-select mb-3" name="industry" required>
+                                                        <option selected>Select your Industry</option>
+                                                        <option value="Web Development">Web Development</option>
+                                                        <option value="IT">IT</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col mt-3">
+                                                <div class="form-group">
                                                     <label>Relevant Skills</label>
                                                     <select class="multiple-select form-control @error('skills') is-invalid @enderror" name="skills[]" multiple="multiple" required>
                                                         <option value="Design">Design</option>
@@ -67,24 +97,15 @@
                                                     @enderror
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         <div class="row">
-                                            <div class="col mt-3">
-                                                <div class="form-group">
-                                                    <label>Desired Salary</label>
-                                                    <input class="form-control @error('desired_salary') is-invalid @enderror" type="number" name="desired_salary" placeholder="Desired Salary" value="{{ old('desired_salary') }}" required>
-                                                    @error('desired_salary')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div>
 
-                                            <div class="col mt-3">
+                                            <div class="col ">
                                                 <div class="form-group">
                                                     <label>Currency</label>
                                                     <select class="form-select mb-3 @error('currency') is-invalid @enderror" name="currency" required>
-                                                        <option selected>Select your Currency</option>
                                                         <option value="USD">USD</option>
                                                         <option value="EUR">EUR</option>
                                                         <option value="GBP">GBP</option>
@@ -92,19 +113,6 @@
                                                     @error('currency')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                     @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label>Industry</label>
-                                                    <select class="form-select mb-3" name="industry" required>
-                                                        <option selected>Select your Industry</option>
-                                                        <option value="Web Development">Web Development</option>
-                                                        <option value="IT">IT</option>
-                                                    </select>
                                                 </div>
                                             </div>
 

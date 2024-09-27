@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('currency');
             $table->string('location');
             $table->text('description')->nullable();
-            $table->decimal('desired_salary', 10, 2)->nullable(); // Added for desired salary
-            $table->string('skills')->nullable();  // Added for skills
+            $table->string('job_type')->nullable(); 
+            $table->string('skills')->nullable();  
             $table->string('status')->default('1');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable()->default(null);
