@@ -61,20 +61,21 @@
                     <td>{{ $application->job->title ?? 'N/A' }}</td>
                     <td><a href="{{ $application->portfolio_website }}" target="_blank">{{ $application->portfolio_website }}</a></td>
                     <td>{{ Str::limit($application->cover_message, 100, '...') }}</td>
-                    <td>{{ $application->status == '1' ? 'Pending' : 'Reviewed' }}</td>
+                    <td>
+
+                        <button class="btn btn-success btn-sm rounded">{{ $application->status ?? ''}}</button>
+                    </td>
+
                     <td>
                         <div class="d-flex">
-                            <!-- Edit Button with Icon -->
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editStatusModal-{{ $application->id }}">
+                            <button type="button" class="btn" data-applicant_id="{{ $application->applicant_id }}" data-id="{{ $application->id }}" data-bs-toggle="modal" data-bs-target="#statusModal">
                                 <i class="fa fa-edit  text-primary"></i>
                             </button>
 
-                            <!-- View Button with Icon (Opens XL Modal with Application Details) -->
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#viewApplicationModal-{{ $application->id }}">
                                 <i class="fa fa-eye  text-info"></i>
                             </button>
 
-                            <!-- Delete Button with Icon -->
                             <form method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
@@ -93,8 +94,8 @@
     </div>
 </div>
 <!-- Blank End -->
+
 @foreach ($applications as $application)
-<!-- XL Modal for Viewing Application Details -->
 <div class="modal fade" id="viewApplicationModal-{{ $application->id }}" tabindex="-1" aria-labelledby="viewApplicationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -200,27 +201,34 @@
 @endforeach
 
 
-@foreach ($applications as $application)
-<!-- Modal for Editing Status -->
-<div class="modal fade" id="editStatusModal-{{ $application->id }}" tabindex="-1" aria-labelledby="editStatusModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<!-- Modal with form -->
+<div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editStatusModalLabel">Edit Application Status</h5>
+                <h5 class="modal-title" id="statusModalLabel">Interview Schedule</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST">
+            <form id="statusForm" method="POST" action="{{ route('interviews.store') }}">
                 @csrf
-                @method('PUT')
+                <input type="hidden" name="application_id" id="application_id">
+                <input type="hidden" name="applicant_id" id="applicant_id">
+                <input type="hidden" name="status" id="status" value="scheduled">
+
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control" name="status" id="status">
-                            <option value="1" {{ $application->status == '1' ? 'selected' : '' }}>Pending</option>
-                            <option value="2" {{ $application->status == '2' ? 'selected' : '' }}>Reviewed</option>
-                        </select>
+                    <!-- Interview Remarks -->
+                    <div class="form-group mb-3">
+                        <label for="employer_remarks" class="form-label">Interview Remarks</label>
+                        <textarea name="employer_remarks" id="employer_remarks" class="form-control" rows="4" placeholder="Enter remarks for the interview"></textarea>
+                    </div>
+
+                    <!-- Interview Date -->
+                    <div class="form-group mb-3">
+                        <label for="date" class="form-label">Interview Date</label>
+                        <input type="date" name="date" id="date" class="form-control">
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -229,7 +237,6 @@
         </div>
     </div>
 </div>
-@endforeach
 
 @stop
 
@@ -258,6 +265,20 @@
             } else {
                 document.querySelector('.no-result').style.display = 'none';
             }
+        });
+    });
+
+    $(document).ready(function() {
+        $('#statusModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var applicationId = button.data('id');
+            var applicant_id = button.data('applicant_id');
+            $('#application_id').val(applicationId);
+            $('#applicant_id').val(applicant_id);
+        });
+
+        $('#statusForm').on('submit', function() {
+            // The form will submit directly
         });
     });
 </script>

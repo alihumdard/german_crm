@@ -53,6 +53,28 @@ class AdminController extends Controller
         }
     }
 
+    public function candidates()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $user = auth()->user();
+        if ($user) {
+            $page_name = 'candidates';
+            if (!view_permission($page_name)) {
+                return redirect()->back();
+            }
+
+            $data['user'] = $user;
+            $data['users']= User::with('experiences','documents')->where(['role' => user_roles(4)])->get()->all();
+            $data['role'] = user_role_no($user->role);
+            return view('admin.pages.candidates', $data);
+        } else {
+            return redirect('/login');
+        }
+    }
+
     public function login()
     {
         return view('admin.pages.signin');
@@ -92,10 +114,10 @@ class AdminController extends Controller
         return redirect()->route('login');
     }
 
-
     public function user_store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'username' => 'required|string|min:2|max:255',
             'name' => 'required|string|min:2|max:255',
             'email' => 'required|email|min:6|max:255|unique:users',
             'phone' => 'required',
@@ -108,6 +130,7 @@ class AdminController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         $user = new User([
+            'username'      => $request->username,
             'name'      => $request->name,
             'email'     => $request->email,
             'phone'     => $request->phone,
@@ -123,5 +146,4 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
-
 }

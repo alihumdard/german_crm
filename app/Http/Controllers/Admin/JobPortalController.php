@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Opportunity;
+use App\Models\AgentAssignment;
 
 
 class JobPortalController extends Controller
@@ -86,21 +87,38 @@ class JobPortalController extends Controller
         }
 
         $user = auth()->user();
+
         if ($user) {
             $page_name = 'job_listing';
             if (!view_permission($page_name)) {
                 return redirect()->back();
             }
 
-            $data['opportunities'] =  Opportunity::where(['status' => $this->status['Active']])->get()->all();
+            if ($user->role == user_roles(4)) {  
+                $assignedJobIds = AgentAssignment::where('employee_id', $user->id)->pluck('job_id');
 
-            $data['user'] = $user;
-            $data['role'] = user_role_no($user->role);
-            return view('admin.pages.jobs_listing', $data);
+                $opportunities = Opportunity::whereIn('id', $assignedJobIds)
+                    ->where('status', $this->status['Active']) 
+                    ->get();
+            } else {
+                $opportunities = Opportunity::where('status', $this->status['Active'])->get();
+            }
+
+            $employees = User::with('experiences', 'documents')
+                ->where(['role' => user_roles(4)])
+                ->get();
+
+            return view('admin.pages.jobs_listing', [
+                'opportunities' => $opportunities,
+                'user' => $user,
+                'role' => user_role_no($user->role),
+                'employees' => $employees,
+            ]);
         } else {
             return redirect('/login');
         }
     }
+
 
     public function job_create()
     {

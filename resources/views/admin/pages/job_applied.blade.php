@@ -49,7 +49,7 @@
                     <th>#</th>
                     <th>Employer Name</th>
                     <th>Job Title</th>
-                    <th>City</th>
+                    <th>Location</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -58,10 +58,20 @@
                 @foreach($applications as $key => $application)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $application->job->employer->name ?? 'N/A' }}</td>
+                    <td>{{ $application->employer->name ?? 'N/A' }}</td>
                     <td>{{ $application->job->title ?? 'N/A' }}</td>
-                    <td>{{ $application->job->city ?? 'N/A' }}</td>
-                    <td>{{ $application->status == '1' ? 'Pending' : 'Reviewed' }}</td>
+                    <td>{{ $application->job->location ?? 'N/A' }}</td>
+                    <td>
+                        @if($application->status == config('constants.STATUS.Active'))
+                        <button class="btn btn-primary btn-sm rounded">Active</button>
+                        @elseif($application->status == config('constants.STATUS.Deactive'))
+                        <button class="btn btn-secondary btn-sm rounded">Deactive</button>
+                        @elseif($application->status == config('constants.STATUS.Deleted'))
+                        <button class="btn btn-danger btn-sm rounded">Deleted</button>
+                        @else
+                        <button class="btn btn-success btn-sm rounded">Review</button>
+                        @endif
+                    </td>
                     <td>
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#viewJobModal-{{ $application->id }}">
                             View Details

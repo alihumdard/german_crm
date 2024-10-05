@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'hireflix' => [
+        'api_key' => env('HIREFLIX_API_KEY'),
+    ],
+
+
 ];

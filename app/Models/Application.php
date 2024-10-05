@@ -37,4 +37,9 @@ class Application extends Model
     {
         return $this->belongsTo(User::class, 'employer_id');
     }
+
+    public function interview()
+    {
+        return $this->hasOne(Interview::class);
+    }
 }

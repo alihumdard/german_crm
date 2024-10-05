@@ -74,6 +74,9 @@ function view_permission($page_name)
                 case 'job_view':
                 case 'job_applied':
                 case 'job_applications':
+                case 'waiting_interviews':
+                case 'cleared_interviews':
+                case 'candidates':
                     return true;
                 default:
                     return false;
@@ -84,10 +87,12 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
-                case 'job_create':
                 case 'job_view':
-                case 'job_applied':
-                case 'job_applications':
+                case 'interview_scheduled':
+                case 'interview_assigned':
+                case 'waiting_interviews':
+                case 'cleared_interviews':
+                case 'candidates':
                     return true;
                 default:
                     return false;
@@ -97,11 +102,10 @@ function view_permission($page_name)
             switch ($page_name) {
                 case 'dashboard':
                 case 'profile':
-                case 'job_listing':
                 case 'job_create':
-                case 'job_view':
-                case 'job_applied':
                 case 'job_applications':
+                case 'waiting_interviews':
+                case 'cleared_interviews':
                     return true;
                 default:
                     return false;
@@ -112,10 +116,11 @@ function view_permission($page_name)
                 case 'dashboard':
                 case 'profile':
                 case 'job_listing':
-                case 'job_create':
+                case 'interview_assigned':
                 case 'job_view':
                 case 'job_applied':
-                case 'job_applications':
+                case 'waiting_interviews':
+                case 'cleared_interviews':
                     return true;
                 default:
                     return false;

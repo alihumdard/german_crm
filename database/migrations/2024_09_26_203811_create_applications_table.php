@@ -15,7 +15,7 @@ class CreateApplicationsTable extends Migration
             $table->unsignedBigInteger('employer_id');
             $table->string('portfolio_website')->nullable();
             $table->text('cover_message')->nullable();
-            $table->string('status')->default('1');
+            $table->string('status')->default('Active');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
