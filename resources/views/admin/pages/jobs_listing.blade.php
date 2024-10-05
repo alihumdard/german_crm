@@ -457,7 +457,7 @@
                         <div class="col-md-6 col-lg-3 my-3">
                             <div class="select-container">
                                 <select class="custom-select">
-                                    <option selected="">Select Job Type</option>
+                                    <option selected="">Select Industry</option>
                                     <option value="1">Ui designer</option>
                                     <option value="2">JS developer</option>
                                     <option value="3">Web developer</option>
@@ -517,7 +517,14 @@
                                                                             <div class="col-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                                                                 <div class="d-flex mb-3">
                                                                                     <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                                                                    <a class="btn btn-primary" href="{{ route('job.view', ['id' => encrypt($opportunity->id)]) }}">Apply Now</a>
+                                                                                    <a class="btn btn-primary {{ $user->role == user_roles(2) ? 'assign-job-btn' : '' }}"
+                                                                                        href="{{ $user->role != user_roles(2) ? route('job.view', ['id' => encrypt($opportunity->id)]) : '#' }}"
+                                                                                        data-job-id="{{ $opportunity->id }}"
+                                                                                        data-toggle="{{ $user->role == user_roles(2) ? 'modal' : '' }}"
+                                                                                        data-target="{{ $user->role == user_roles(2) ? '#assignJobModal' : '' }}">
+                                                                                        {{ $user->role == user_roles(2) ? 'Assign Job' : 'Apply Now' }}
+                                                                                    </a>
+
                                                                                 </div>
                                                                                 <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{ $opportunity->created_at->format('M d, Y') }} ({{ $opportunity->created_at->diffForHumans() }})</small>
                                                                             </div>
@@ -554,11 +561,54 @@
     </div>
 </div>
 <!-- Blank End -->
+<!-- Job Assignment Modal -->
+<div class="modal fade" id="assignJobModal" tabindex="-1" role="dialog" aria-labelledby="assignJobModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewJobModalLabel">Select Sepecific Users</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="assignJobForm" method="POST" action="{{ route('job.assign') }}">
+                    @csrf
+                    <input type="hidden" id="job_id" name="job_id" value="">
+                    <div class="form-group">
+                        <label for="employee_id">Select Employee</label>
+                        <select class="form-control multi" id="employee_id" name="employee_id[]" multiple required>
+                            @foreach($employees as $employee)
+                            <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- Correct form attribute to 'assignJobForm' -->
+                <button form="assignJobForm" type="submit" class="btn btn-primary">Assign Job</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @stop
 
 @pushOnce('scripts')
 <script>
+    $(document).ready(function() {
+        $('.assign-job-btn').on('click', function(e) {
+            e.preventDefault();
+            var jobId = $(this).data('job-id');
+            $('#job_id').val(jobId);
+            $('#assignJobModal').modal('show');
+        });
+    });
 
+    $('.multiple-select').select2({
+        tags: true,
+        tokenSeparators: [',', ' '],
+        placeholder: 'Select your Skills'
+    });
 </script>
 @endPushOnce

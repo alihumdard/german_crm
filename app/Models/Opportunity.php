@@ -30,4 +30,10 @@ class Opportunity extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function assignments()
+    {
+        return $this->hasMany(AgentAssignment::class, 'job_id');
+    }
+
 }

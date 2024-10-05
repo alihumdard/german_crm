@@ -58,6 +58,15 @@
                             @csrf
 
                             <div class="form-floating mb-3">
+                                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                                    id="floatingText" placeholder="jhondoe" value="{{ old('username') }}" required minlength="2" maxlength="255">
+                                <label for="floatingText">User Name</label>
+                                @error('username')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-floating mb-3">
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                                     id="floatingText" placeholder="jhondoe" value="{{ old('name') }}" required minlength="2" maxlength="255">
                                 <label for="floatingText">Full Name</label>

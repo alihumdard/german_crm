@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'dob',
@@ -74,4 +75,15 @@ class User extends Authenticatable
         return $this->hasMany(UserExperience::class, 'user_id');
     }
 
+    // For employees (candidates) who have been assigned jobs by agents
+    public function assignedJobs()
+    {
+        return $this->hasMany(AgentAssignment::class, 'employee_id');
+    }
+
+    // For agents who assign jobs to employees
+    public function assignedEmployees()
+    {
+        return $this->hasMany(AgentAssignment::class, 'agent_id');
+    }
 }

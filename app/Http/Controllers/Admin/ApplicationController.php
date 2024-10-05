@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Application;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Application;
+use App\Models\AgentAssignment;
 
 
 class ApplicationController extends Controller
@@ -54,7 +55,7 @@ class ApplicationController extends Controller
             }
 
             $applications = Application::where('applicant_id', $user->id)
-                ->with(['job', 'employer']) 
+                ->with(['job', 'employer'])
                 ->get();
 
             $data['user'] = $user;
@@ -64,7 +65,6 @@ class ApplicationController extends Controller
             return redirect('/login');
         }
     }
-
 
     public function apply(Request $request)
     {
@@ -107,5 +107,40 @@ class ApplicationController extends Controller
         $application->save();
 
         return redirect()->back()->with('success', 'Application updated successfully.');
+    }
+
+    public function job_applications_status(Request $request)
+    {
+        $request->validate([
+            'application_id' => 'required|exists:applications,id',
+            'status' => 'required|in:' . implode(',', config('constants.STATUS')),
+        ]);
+
+        $application = Application::findOrFail($request->application_id);
+        $application->status = $request->status;
+        $application->save();
+
+        return redirect()->route('job.applications')->with('success', 'Application status updated successfully.');
+    }
+
+
+    public function job_assign(Request $request)
+    {
+        $request->validate([
+            'job_id' => 'required|exists:opportunities,id',
+            'employee_id' => 'required|array|min:1',
+            'employee_id.*' => 'exists:users,id',
+        ]);
+
+        foreach ($request->employee_id as $employeeId) {
+            AgentAssignment::create([
+                'job_id' => $request->job_id,
+                'agent_id' => auth()->user()->id,
+                'employee_id' => $employeeId,
+                'assigned_at' => now(),
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Job assigned successfully to selected employees.');
     }
 }
